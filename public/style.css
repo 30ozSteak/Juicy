@@ -1,4 +1,72 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  background-color: rgb(245, 245, 245);
   height: 100vh;
-  background-color: red;
+}
+
+header {
+  background-color: rgb(243, 243, 243);
+  box-shadow: 2px 2px 5px rgb(223, 223, 223);
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.🍔 {
+  margin: 0.55rem;
+  width: 2.2rem;
+  height: 1.1rem;
+  cursor: pointer;
+}
+
+.🍔 div {
+  background-color: black;
+  height: 3px;
+  margin: 6px 0;
+  transition: 0.2s;
+  width: 100%;
+}
+
+.🍔:hover div {
+  box-shadow: 2px 2px 5px rgba(82, 82, 82, 0.473);
+}
+
+.title-block {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.title-block h1 {
+  font-family: "Lobster Two", cursive;
+  font-size: 10rem;
+  color: rgb(39, 39, 39);
+}
+
+.title-block h3 {
+  font-weight: 100;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+  margin-left: 9rem;
+}
+
+.refresh {
+  transition: 0.5s;
+}
+
+.refresh img {
+  width: 25px;
+  margin: 0.7rem;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.refresh img:hover {
+  transform: rotate(360deg);
+  filter: drop-shadow(2px 2px 1px rgb(143, 143, 143));
 }
