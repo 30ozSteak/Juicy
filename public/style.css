@@ -10,8 +10,6 @@ body {
   background: linear-gradient(to right, #414345, #232526);
 
   height: 100vh;
-  /* animation: 🦄 2s linear infinite; */
-  /* filter: hue-rotate(90deg); */
 }
 
 @keyframes 🦄 {
