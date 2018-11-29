@@ -1,13 +1,23 @@
 const colors = document.querySelectorAll(".color");
-const refresh = document.querySelector(".refresh");
+const shuffle = document.querySelector(".shuffle");
+const magicButton = document.querySelector('.magic-button')
 
-refresh.addEventListener("click", genColors);
+
+magicButton.addEventListener('click', displayColors);
+shuffle.addEventListener("click", genColors);
+
 
 function genColors() {
   for (let i = 0; i < 5; i++) {
     colors[i].style.backgroundColor = new ColoredBox().blockColor;
     console.log(colors);
   }
+}
+
+function displayColors() {
+  magicButton.classList.toggle('open');
+  console.log('y');
+  // magicButton.classList.toggle('open-button');
 }
 
 class ColoredBox {
