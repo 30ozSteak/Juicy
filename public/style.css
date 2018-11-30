@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  font-family: "Jura", sans-serif;  
   padding: 0;
 }
 
@@ -31,7 +32,8 @@ header {
   background-color: gray;
   height: 3px;
   margin: 6px 0;
-  transition: 0.2s;
+  transition: 0.4s;
+  position: relative;
 }
 
 .🍔:hover div {
@@ -46,8 +48,20 @@ header {
   width: 100%;
 }
 
-.🍔:hover div:nth-child(2) {
-  margin-top: .7rem;
+.🍔-expanded div{
+  filter: brightness(150%);
+}
+
+.🍔-expanded div:nth-child(1) {
+  width: 100%;
+  transform: rotate(45deg);
+  top: 4px;
+  
+}
+
+.🍔-expanded div:nth-child(2){
+  transform: rotate(-45deg);
+  bottom: 5px;
 }
 
 .shuffle{
@@ -67,6 +81,40 @@ header {
   transform: scaleY(-1);
 }
 
+/* ! Project Menu ! */
+
+.project-menu{
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.548);
+  height: 40rem;
+  min-width: 20rem;
+  left: -100%;
+  border-radius: 20px;
+  margin: 3rem auto 0;
+  border: 1px solid rgba(255, 255, 255, 0.459);
+  transition: .7s;
+  position: absolute;
+  background: radial-gradient(#414345, #2e3031);
+  z-index: 10;
+}
+
+.project-menu h1{
+  font-family: "Jura", sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.project-menu h1:nth-child(1){
+  margin-top: 2rem;
+}
+
+.saved-projects{
+  margin-top: 20rem;
+}
+
+.p-m-active{
+  left: 9.5% !important;
+}
+
 /* ! Magic Button ! */
 
 .magic-button {
@@ -76,15 +124,15 @@ header {
   margin: .6rem;
   width: 9.6rem;
   z-index: 9;
+  transition: .3s;
 }
 
 .magic-button:hover {
-  filter: brightness(130%);
+  box-shadow: 0px 0px 25px rgb(255, 255, 255);
 }
 
 .magic-button h1 {
   color: rgb(243, 243, 243);
-  font-family: "Jura", sans-serif;
   font-size: 2rem;
   margin-top: 3.6rem;
   text-transform: uppercase;
@@ -95,6 +143,7 @@ header {
   margin: 13rem auto 0;
   width: 12rem;
   cursor: pointer;  
+  height: 12rem;
 }
 
 .color-block section {
@@ -108,51 +157,55 @@ header {
   width: 11rem;
   box-sizing: border-box;
   border: 5px solid transparent;
-  transition: .2s
+  transition: .4s;
+}
+
+.color-locked{
+  box-shadow: 0px 0px 25px rgb(255, 255, 255);  
 }
 
 .open ~ .color{
-  animation: none !important;
   border-radius: 50% !important;
   margin-left: 2rem;
   height: 8rem;
   width: 8rem;
+  transform: scale(.6);  
+  animation: none !important;
 }
 
 .open ~ .color:hover{
-  box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.514);
   border: 5px solid rgb(255, 255, 255);
+  transition: .2s !important;
 }
 
 .open ~ .red{
-  margin-top: -4rem;
+  margin-top: -5.5rem;
   transition-delay: .1s
 }
 
 .open ~ .purple{
-  margin-left: 7.5rem;
+  margin-left: 9.4rem;
   margin-top: .8rem;
-  transition-delay: .2s
-}
-
-.open ~.yellow{
-  margin-top: 6.3rem;
-  margin-left: 6rem;
   transition-delay: .3s
 }
 
-.open ~.green{
-  margin-top: 6.5rem;
-  margin-left: -2rem;
-  transition-delay: .4s
-}
-
-.open ~.blue{
-  margin-left: -3.5rem;
+.open ~.yellow{
+  margin-top: 8.1rem;
+  margin-left: 6.5rem;
   transition-delay: .5s
 }
 
+.open ~.green{
+  margin-top: 8rem;
+  margin-left: -2.8rem;
+  transition-delay: .7s
+}
 
+.open ~.blue{
+  margin-left: -5.2rem;
+  margin-top: .6rem;
+  transition-delay: .9s
+}
 
 .color:nth-child(2) {
   animation: rotate 12.5s linear infinite;
@@ -184,6 +237,114 @@ header {
   animation-direction: reverse;  
   background-color: rgb(218, 95, 255);
   border-radius: 50% 40% 50% 50%;
+}
+
+.d-m-btn{
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  transition: .2s;
+  margin: 2rem auto 0;
+}
+
+.d-m-btn-active{
+  filter: brightness(150%);
+}
+
+.d-m-btn:hover{
+  filter: brightness(150%);
+  cursor: pointer;
+}
+
+/* ! Save block ! */
+
+.save-block{
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.548);
+  height: 15rem;
+  width: 20rem;
+  border-radius: 20px;
+  margin: 18rem auto;
+  border: 1px solid rgba(255, 255, 255, 0.459);
+  transition: .6s;
+}
+
+.save-block-open{
+  margin: 1rem auto !important;
+}
+
+.save-block input{
+  background: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  padding: 1rem 1rem 0 0 ;
+  display: block;
+  text-transform: uppercase;
+  margin: 3rem auto 0;
+  font-size: 1rem;
+  outline: none;
+  color: white;
+}
+
+/* ! info-button ! */
+
+.ℹ️{
+  width: 1.5rem;
+  transition: .4s;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.ℹ️:hover{
+  filter: brightness(180%);
+  cursor: pointer;
+  z-index: 500;
+}
+
+/* ! info-overlay ! */
+
+.info-overlay{
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  color: lightgray;  
+  transition: .4s;
+  opacity: 0;
+}
+
+.info-overlay-shown{
+  opacity: 1;
+}
+
+.v{
+  position: fixed;
+  top: 3rem;
+  left: .5rem;
+}
+
+.s{
+  position: fixed;
+  top: 3rem;
+  right: .5rem;
+}
+
+.c{
+width: 7rem;
+position: fixed;
+left: 38%;
+bottom: 13rem;
+}
+
+@media only screen and (min-width: 1000px) {
+  .c {
+      left: 46.3%
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .c {
+      left: 44.5%
+  }
 }
 
 /* !animations */
