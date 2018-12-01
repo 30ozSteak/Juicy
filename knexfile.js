@@ -12,10 +12,10 @@ module.exports = {
   },
 
   production: {
-    client: "postgresql",
+    client: "pg",
     connection: process.env.DATABASE_URL + `?ssl=true`,
     migrations: {
-      tableName: "knex_migrations"
+      tableName: "./db/migrations"
     },
     useNullAsDefault: true
   }
