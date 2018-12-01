@@ -29,12 +29,11 @@ app.get("/api/v1/projects", (request, response) => {
 
 app.post("/api/v1/projects", (request, response) => {
   const project = request.body;
-  console.log('help pls');
   if (!project.name) {
     return response
       .status(422)
       .send({
-        error: `You need a name property 💔`
+        error: `Pls name this project 🍉`
       })
   } else {
     database('projects').insert(project, 'id')
@@ -55,8 +54,27 @@ app.listen(app.get("port"), () => {
   console.log(`JUICYYYYYYY is running on https://localhost:${app.get("port")}`);
 });
 
-// get('/api/v1/projects/:project_id/palettes')
-// post("/api/v1/:project_id/palettes", );
+app.get('/api/v1/projects/:project_id/palettes', (request, response) => {
+  database('palettes').select()
+    .then((palettes) => {
+      response.status(200).json(palettes)
+    })
+    .catch((error) => {
+      response.status(500).json({
+        error
+      })
+    })
+})
+
+app.post("/api/v1/:project_id/palettes", (request, response) => {
+  const palette = request.body;
+  if (!palette.name) {
+    return response
+      .status(422)
+      .send({
+        error: `Pls name this juicy palette 🍉`
+      })
+  }
+});
 
 // delete("/api/v1/project/:project_id/palettes/:palette_id", );
-// delete("/api/v1/projects/:project_id", );

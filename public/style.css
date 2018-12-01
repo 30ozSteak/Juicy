@@ -128,10 +128,8 @@ header {
 
 .current-project {
   color: white;
-  position: absolute;
-  display: inline-block;
-  margin-top: 7rem;
-  left: 18%;
+  text-align: center;
+  margin: 5rem 0 -5rem;
 }
 
 /* ! Magic Button ! */
@@ -285,7 +283,6 @@ header {
 /* ! Save block ! */
 
 .save-block {
-  /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.548); */
   height: 15rem;
   width: 20rem;
   border-radius: 20px 20px 0 0;

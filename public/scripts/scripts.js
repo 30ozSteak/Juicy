@@ -10,6 +10,8 @@ const saveColors = document.querySelector('.save-color');
 const paletteInput = document.querySelector('.save-color-palette-input');
 const saveProjectInput = document.querySelector('.save-project-input');
 const saveProjectButton = document.querySelector('.submit-project-button');
+const projectBox = document.querySelector('.saved-projects')
+const currentProjectTitle = document.querySelector('.current-project')
 
 magicButton.addEventListener('click', displayColors);
 colorBlock.addEventListener('click', lockColor);
@@ -19,26 +21,37 @@ showSaveBtn.addEventListener('click', openSaveMenu);
 menuButton.addEventListener('click', openProjectMenu);
 infoButton.addEventListener('click', showInfoMenu);
 saveColorsButton.addEventListener('click', savePalette)
+projectBox.addEventListener('click', projectBoxHandler)
+
+getProjects();
+
+function projectBoxHandler(ev) {
+  if (ev.target.classList.contains('project-label')) {
+    currentProjectTitle.innerHTML = (ev.target.innerText)
+    currentProjectTitle.id = (ev.target.parentNode.id);
+  }
+}
 
 function saveProject(ev) {
   ev.preventDefault();
   let projectName = saveProjectInput.value;
   postProjects(projectName);
+  document.querySelector('.save-project-input').value = ('')
 }
 
 function savePalette(ev) {
   ev.preventDefault();
+  document.querySelector()
   let paletteName = paletteInput.value;
   let savedPalette = {
     name: paletteName,
-    proj_id: 'lol',
+    proj_id: currentProjectTitle.id,
     color_1: colors[0].id,
     color_2: colors[1].id,
     color_3: colors[2].id,
     color_4: colors[3].id,
     color_5: colors[4].id,
   }
-  console.log(savedPalette);
 }
 
 function openProjectMenu() {
@@ -61,9 +74,11 @@ function showInfoMenu() {
 
 function genColors() {
   for (let i = 0; i < 5; i++) {
-    let hex = new ColoredBox().blockColor;
-    colors[i].style.backgroundColor = hex
-    colors[i].id = hex
+    if (!colors[i].classList.contains('locked')) {
+      let hex = new ColoredBox().blockColor;
+      colors[i].style.backgroundColor = hex
+      colors[i].id = hex
+    }
   }
 }
 
@@ -87,6 +102,24 @@ class ColoredBox {
   }
 }
 
+function addProjectHTML(name, id) {
+  console.log(name, id);
+  let projectHtml = `<div class='project-literal' id=${id}><h3 class="project-label">${name}</h3></div>`;
+  projectBox.innerHTML += projectHtml
+}
+
+function getProjects() {
+  fetch("/api/v1/projects")
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (data) {
+      data.forEach(project => {
+        addProjectHTML(project.name, project.id)
+      })
+    })
+}
+
 function postProjects(name) {
   fetch("/api/v1/projects", {
       method: 'POST',
@@ -102,6 +135,9 @@ function postProjects(name) {
     .then(function (response) {
       return response.json();
     })
-    .then(console.log)
+    .then(function (data) {
+      addProjectHTML(name, data)
+    })
     .catch(err => console.log(err))
+
 }
