@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  font-family: "Jura", sans-serif;  
+  font-family: "Jura", sans-serif;
   padding: 0;
 }
 
@@ -48,7 +48,7 @@ header {
   width: 100%;
 }
 
-.🍔-expanded div{
+.🍔-expanded div {
   filter: brightness(150%);
 }
 
@@ -56,16 +56,16 @@ header {
   width: 100%;
   transform: rotate(45deg);
   top: 4px;
-  
+
 }
 
-.🍔-expanded div:nth-child(2){
+.🍔-expanded div:nth-child(2) {
   transform: rotate(-45deg);
   bottom: 5px;
 }
 
-.shuffle{
-  cursor: pointer;  
+.shuffle {
+  cursor: pointer;
   transition: .2s;
 }
 
@@ -76,15 +76,15 @@ header {
   width: 30px;
 }
 
-.shuffle:hover img {  
+.shuffle:hover img {
   filter: brightness(200%);
   transform: scaleY(-1);
 }
 
 /* ! Project Menu ! */
 
-.project-menu{
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.548);
+.project-menu {
+  /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.548); */
   height: 40rem;
   min-width: 20rem;
   left: -100%;
@@ -93,26 +93,45 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.459);
   transition: .7s;
   position: absolute;
-  background: radial-gradient(#414345, #2e3031);
+  background: radial-gradient(#414345f1, #2e3031f5);
   z-index: 10;
 }
 
-.project-menu h1{
+.project-menu h1 {
   font-family: "Jura", sans-serif;
   color: white;
   text-align: center;
 }
 
-.project-menu h1:nth-child(1){
+.project-menu h1:nth-child(1) {
   margin-top: 2rem;
 }
 
-.saved-projects{
-  margin-top: 20rem;
+.saved-projects {
+  margin-top: 1rem;
 }
 
-.p-m-active{
+.p-m-active {
   left: 9.5% !important;
+}
+
+/* ! Project Header ! */
+
+.save-colors {
+  position: absolute;
+}
+
+.project-name-block {
+  top: 5rem;
+  position: absolute;
+}
+
+.current-project {
+  color: white;
+  position: absolute;
+  display: inline-block;
+  margin-top: 7rem;
+  left: 18%;
 }
 
 /* ! Magic Button ! */
@@ -139,10 +158,10 @@ header {
   text-align: center;
 }
 
-.color-block{
+.color-block {
   margin: 13rem auto 0;
   width: 12rem;
-  cursor: pointer;  
+  cursor: pointer;
   height: 12rem;
 }
 
@@ -160,48 +179,55 @@ header {
   transition: .4s;
 }
 
-.color-locked{
-  box-shadow: 0px 0px 25px rgb(255, 255, 255);  
+.locked {
+  border: 5px solid white;
+  box-shadow: 0 0 15px white;
+  transition: border 0s !important;
+  /* ! figure this out ! */
 }
 
-.open ~ .color{
+.color-locked {
+  box-shadow: 0px 0px 25px rgb(255, 255, 255);
+}
+
+.open~.color {
   border-radius: 50% !important;
   margin-left: 2rem;
   height: 8rem;
   width: 8rem;
-  transform: scale(.6);  
+  transform: scale(.6);
   animation: none !important;
 }
 
-.open ~ .color:hover{
+.open~.color:hover {
   border: 5px solid rgb(255, 255, 255);
   transition: .2s !important;
 }
 
-.open ~ .red{
+.open~.red {
   margin-top: -5.5rem;
   transition-delay: .1s
 }
 
-.open ~ .purple{
+.open~.purple {
   margin-left: 9.4rem;
   margin-top: .8rem;
   transition-delay: .3s
 }
 
-.open ~.yellow{
+.open~.yellow {
   margin-top: 8.1rem;
   margin-left: 6.5rem;
   transition-delay: .5s
 }
 
-.open ~.green{
+.open~.green {
   margin-top: 8rem;
   margin-left: -2.8rem;
   transition-delay: .7s
 }
 
-.open ~.blue{
+.open~.blue {
   margin-left: -5.2rem;
   margin-top: .6rem;
   transition-delay: .9s
@@ -234,12 +260,12 @@ header {
 
 .color:nth-child(6) {
   animation: rotate 16s linear infinite;
-  animation-direction: reverse;  
+  animation-direction: reverse;
   background-color: rgb(218, 95, 255);
   border-radius: 50% 40% 50% 50%;
 }
 
-.d-m-btn{
+.d-m-btn {
   width: 2rem;
   height: 2rem;
   display: block;
@@ -247,36 +273,36 @@ header {
   margin: 2rem auto 0;
 }
 
-.d-m-btn-active{
+.d-m-btn-active {
   filter: brightness(150%);
 }
 
-.d-m-btn:hover{
+.d-m-btn:hover {
   filter: brightness(150%);
   cursor: pointer;
 }
 
 /* ! Save block ! */
 
-.save-block{
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.548);
+.save-block {
+  /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.548); */
   height: 15rem;
   width: 20rem;
-  border-radius: 20px;
+  border-radius: 20px 20px 0 0;
   margin: 18rem auto;
   border: 1px solid rgba(255, 255, 255, 0.459);
   transition: .6s;
 }
 
-.save-block-open{
+.save-block-open {
   margin: 1rem auto !important;
 }
 
-.save-block input{
+.save-block input {
   background: none;
   border: none;
   border-bottom: 1px solid gray;
-  padding: 1rem 1rem 0 0 ;
+  padding: 1rem 1rem 0 0;
   display: block;
   text-transform: uppercase;
   margin: 3rem auto 0;
@@ -287,7 +313,7 @@ header {
 
 /* ! info-button ! */
 
-.ℹ️{
+.ℹ️ {
   width: 1.5rem;
   transition: .4s;
   position: fixed;
@@ -295,7 +321,7 @@ header {
   bottom: 1rem;
 }
 
-.ℹ️:hover{
+.ℹ️:hover {
   filter: brightness(180%);
   cursor: pointer;
   z-index: 500;
@@ -303,47 +329,47 @@ header {
 
 /* ! info-overlay ! */
 
-.info-overlay{
+.info-overlay {
   box-sizing: border-box;
   left: 0;
   top: 0;
-  color: lightgray;  
+  color: lightgray;
   transition: .4s;
   opacity: 0;
 }
 
-.info-overlay-shown{
+.info-overlay-shown {
   opacity: 1;
 }
 
-.v{
+.v {
   position: fixed;
   top: 3rem;
   left: .5rem;
 }
 
-.s{
+.s {
   position: fixed;
   top: 3rem;
   right: .5rem;
 }
 
-.c{
-width: 7rem;
-position: fixed;
-left: 38%;
-bottom: 13rem;
+.c {
+  width: 7rem;
+  position: fixed;
+  left: 38%;
+  bottom: 13rem;
 }
 
 @media only screen and (min-width: 1000px) {
   .c {
-      left: 46.3%
+    left: 46.3%
   }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 900px) {
   .c {
-      left: 44.5%
+    left: 44.5%
   }
 }
 

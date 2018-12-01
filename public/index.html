@@ -17,28 +17,32 @@
       <div></div>
     </section>
     <section class="project-menu">
-      <section class="saved-palettes">
-        <h1>Saved Palettes</h1>
-      </section>
       <section class="saved-projects">
-        <h1>Saved Palettes</h1>
+        <h1>Saved Projects</h1>
       </section>
     </section>
     <section class="shuffle">
       <img src="./assets/shuffle.svg" alt="" />
     </section>
   </header>
+  <section class="project-name-block">
+    <form class="save-palette-form">
+      <input type="text" class="save-project-input">
+      <button class="submit-project-button">Submit</button>
+    </form>
+  </section>
+  <h1 class="current-project" id="proj_id">Current Project</h1>
   <section class="color-block">
     <section class="magic-button">
       <h1>Juicy</h1>
     </section>
-    <section class="color red"></section>
-    <section class="color green"></section>
-    <section class="color blue"></section>
-    <section class="color yellow"></section>
-    <section class="color purple"></section>
+    <section class="color red" id="#ff5454"></section>
+    <section class="color green" id="#52ff1d"></section>
+    <section class="color blue" id="#44b4ff"></section>
+    <section class="color yellow" id="#fcff4a"></section>
+    <section class="color purple" id="#da5fff"></section>
   </section>
-  <img class="ℹ️" src="./assets/info.svg" alt="">
+  <img class=" ℹ️" src="./assets/info.svg" alt="">
   <section class="info-overlay info-overlay-shown">
     <p class="v">View Saved</p>
     <p class="s">Shuffle Colors</p>
@@ -46,8 +50,10 @@
   </section>
   <img class="d-m-btn" src="./assets/download.svg" alt="">
   <section class="save-block">
-    <input type="text" placeholder="Palette Name">
-    <input type="text" placeholder="Project Name">
+    <form>
+      <input type="text" placeholder="Palette Name" class="save-color-palette-input" required>
+      <button type="submit" class="save-color-palette-btn">SAVE COLORS</button>
+    </form>
   </section>
   <script src="./scripts/scripts.js"></script>
 </body>
