@@ -6,6 +6,8 @@ const database = require('knex')(configuration);
 
 const app = express();
 
+app.use(express.static('public'));
+// grants access to public folder
 app.use(bodyParser.json());
 
 app.locals.title = "Juicy";
@@ -27,7 +29,7 @@ app.get("/api/v1/projects", (request, response) => {
 
 app.post("/api/v1/projects", (request, response) => {
   const project = request.body;
-  console.log(project);
+  console.log('help pls');
   if (!project.name) {
     return response
       .status(422)

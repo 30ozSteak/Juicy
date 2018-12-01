@@ -93,6 +93,8 @@ function postProjects(name) {
       body: JSON.stringify({
         name
       }),
+      mode: 'cors',
+      credentials: 'same-origin',
       headers: {
         'Content-Type': 'application/json'
       }
