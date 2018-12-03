@@ -128,10 +128,10 @@ header {
   position: absolute;
 }
 
-.project-name-block {
+/* .project-name-block {
   top: 5rem;
   position: absolute;
-}
+} */
 
 .current-project {
   color: white;
@@ -186,9 +186,7 @@ header {
 
 .locked {
   border: 5px solid white;
-  box-shadow: 0 0 15px white;
   transition: border 0s !important;
-  /* ! figure this out ! */
 }
 
 .color-locked {
