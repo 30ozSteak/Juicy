@@ -327,24 +327,28 @@ header {
 .save-block button {
   border-radius: 5px;
   border: 1px solid gray;
+  background-color: gray;
   color: white;
   display: block;
   margin: .5rem auto 0;
   outline: none;
   padding: .5rem 1rem;
+  transition: .3s;
 }
 
 .save-block button:disabled {
   background-color: transparent;
-  border: 1px solid darkgray;
+  border: 1px solid transparent;
+  ;
   color: darkgray;
   cursor: default;
 }
 
-.save-color-palette-btn:hover {
-  background-color: lightgray;
+.save-block button:hover {
+  color: darkgray;
   border: 1px solid white;
   cursor: pointer;
+  filter: brightness(150%);
 }
 
 /* ! info-button ! */
@@ -400,7 +404,6 @@ header {
 }
 
 .proj-cir {
-  background-color: red;
   border: 1px solid transparent;
   border-radius: 50%;
   height: 2rem;

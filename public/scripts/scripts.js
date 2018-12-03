@@ -23,9 +23,10 @@ menuButton.addEventListener('click', openProjectMenu);
 infoButton.addEventListener('click', showInfoMenu);
 saveColorsButton.addEventListener('click', savePalette)
 projectBox.addEventListener('click', projectBoxHandler)
+savePaletteInput.addEventListener('keydown', enablePaletteSave)
+saveProjectInput.addEventListener('keydown', enableProjectSave)
 
 getProjects();
-enablePaletteSave();
 
 function projectBoxHandler(ev) {
   if (ev.target.classList.contains('project-label')) {
@@ -39,16 +40,22 @@ function saveProject(ev) {
   let projectName = saveProjectInput.value;
   postProjects(projectName);
   document.querySelector('.save-project-input').value = ('')
+  openSaveMenu();
 }
 
 function addColorsToPCircles() {
   let array = [];
-
 }
 
 function enablePaletteSave() {
-  if (savePaletteInput.length > 0) {
-    document.querySelector('save-color-palette-btn').removeAttribute("disabled");
+  if (document.querySelector('.save-color-palette-input').value === "") {
+    document.querySelector('.save-color-palette-btn').toggleAttribute('disabled');
+  }
+}
+
+function enableProjectSave() {
+  if (document.querySelector('.save-project-input').value === '') {
+    document.querySelector('.submit-project-button').toggleAttribute('disabled')
   }
 }
 
