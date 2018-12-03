@@ -269,35 +269,38 @@ header {
 }
 
 .d-m-btn {
-  width: 2rem;
-  height: 2rem;
+  width: 1rem;
+  height: 1rem;
   display: block;
-  transition: .2s;
-  margin: 2rem auto 0;
+  transition: .4s;
+  margin: .5rem auto 0;
+  cursor: pointer;
+}
+
+.d-m-btn-active,
+.d-m-btn:hover {
+  filter: brightness(150%);
 }
 
 .d-m-btn-active {
-  filter: brightness(150%);
-}
-
-.d-m-btn:hover {
-  filter: brightness(150%);
-  cursor: pointer;
+  transform: scaleX(-1) scaleY(-1) scale(.9);
 }
 
 /* ! Save block ! */
 
 .save-block {
-  height: 15rem;
+  height: 20rem;
   width: 20rem;
   border-radius: 20px 20px 0 0;
-  margin: 18rem auto;
+  margin: 13.5rem auto 0;
   border: 1px solid rgba(255, 255, 255, 0.459);
+  background: radial-gradient(#414345, #2e3031);
   transition: .6s;
+  ;
 }
 
 .save-block-open {
-  margin: 1rem auto !important;
+  margin: 1rem auto 0 auto !important;
 }
 
 .save-block input {
@@ -358,7 +361,7 @@ header {
 
 .c {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 
