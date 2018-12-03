@@ -13,8 +13,8 @@ body {
 }
 
 header {
-  height: 3rem;
   display: flex;
+  height: 3rem;
   justify-content: space-between;
   transition: 0.5s;
 }
@@ -32,8 +32,8 @@ header {
   background-color: gray;
   height: 3px;
   margin: 6px 0;
-  transition: 0.4s;
   position: relative;
+  transition: 0.4s;
 }
 
 .🍔:hover div {
@@ -53,15 +53,15 @@ header {
 }
 
 .🍔-expanded div:nth-child(1) {
-  width: 100%;
-  transform: rotate(45deg);
   top: 4px;
+  transform: rotate(45deg);
+  width: 100%;
 
 }
 
 .🍔-expanded div:nth-child(2) {
-  transform: rotate(-45deg);
   bottom: 5px;
+  transform: rotate(-45deg);
 }
 
 .shuffle {
@@ -84,21 +84,20 @@ header {
 /* ! Project Menu ! */
 
 .project-menu {
-  height: 40rem;
-  min-width: 20rem;
-  left: -100%;
-  border-radius: 20px;
-  margin: 3rem auto 0;
-  border: 1px solid rgba(255, 255, 255, 0.459);
-  transition: .7s;
-  position: absolute;
   background: radial-gradient(#414345f1, #2e3031f5);
-  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.459);
+  border-radius: 20px;
+  height: 40rem;
+  left: -100%;
+  margin: 3rem auto 0;
+  min-width: 20rem;
   overflow: scroll;
+  position: absolute;
+  transition: .7s;
+  z-index: 10;
 }
 
 .project-menu h1 {
-  font-family: "Jura", sans-serif;
   color: white;
   text-align: center;
 }
@@ -117,8 +116,13 @@ header {
 
 .project-label {
   color: white;
-  text-align: center;
+  cursor: pointer;
   margin-bottom: 1rem;
+  text-align: center;
+  transition: .2s;
+}
+
+.project-label:hover {
   text-decoration: underline;
 }
 
@@ -128,15 +132,10 @@ header {
   position: absolute;
 }
 
-.project-name-block {
-  top: 5rem;
-  position: absolute;
-}
-
 .current-project {
   color: white;
-  text-align: center;
   margin: 5rem 0 -5rem;
+  text-align: center;
 }
 
 /* ! Magic Button ! */
@@ -146,9 +145,9 @@ header {
   border: 9px solid white;
   height: 9.6rem;
   margin: .6rem;
+  transition: .3s;
   width: 9.6rem;
   z-index: 9;
-  transition: .3s;
 }
 
 .magic-button:hover {
@@ -164,10 +163,10 @@ header {
 }
 
 .color-block {
-  margin: 13rem auto 0;
-  width: 12rem;
   cursor: pointer;
   height: 12rem;
+  margin: 13rem auto 0;
+  width: 12rem;
 }
 
 .color-block section {
@@ -176,19 +175,17 @@ header {
 }
 
 .color {
+  border: 5px solid transparent;
+  box-sizing: border-box;
   height: 11rem;
   margin: 0.5rem;
-  width: 11rem;
-  box-sizing: border-box;
-  border: 5px solid transparent;
   transition: .4s;
+  width: 11rem;
 }
 
 .locked {
   border: 5px solid white;
-  box-shadow: 0 0 15px white;
   transition: border 0s !important;
-  /* ! figure this out ! */
 }
 
 .color-locked {
@@ -196,12 +193,12 @@ header {
 }
 
 .open~.color {
+  animation: none !important;
   border-radius: 50% !important;
   margin-left: 2rem;
   height: 8rem;
-  width: 8rem;
   transform: scale(.6);
-  animation: none !important;
+  width: 8rem;
 }
 
 .open~.color:hover {
@@ -270,76 +267,114 @@ header {
   border-radius: 50% 40% 50% 50%;
 }
 
+/* ! Save Block ! */
+
 .d-m-btn {
-  width: 2rem;
-  height: 2rem;
+  cursor: pointer;
   display: block;
-  transition: .2s;
-  margin: 2rem auto 0;
+  height: 1rem;
+  margin: .5rem auto 0;
+  transition: .4s;
+  width: 1rem;
+}
+
+.d-m-btn-active,
+.d-m-btn:hover {
+  filter: brightness(150%);
 }
 
 .d-m-btn-active {
-  filter: brightness(150%);
+  transform: scaleX(-1) scaleY(-1) scale(.9);
 }
-
-.d-m-btn:hover {
-  filter: brightness(150%);
-  cursor: pointer;
-}
-
-/* ! Save block ! */
 
 .save-block {
-  height: 15rem;
-  width: 20rem;
   border-radius: 20px 20px 0 0;
-  margin: 18rem auto;
   border: 1px solid rgba(255, 255, 255, 0.459);
+  background: radial-gradient(#414345, #2e3031);
+  height: 15rem;
+  margin: 14.5rem auto 0;
   transition: .6s;
+  width: 19rem;
+}
+
+.save-block p {
+  color: gray;
+  text-align: center;
+  transition: .3s;
 }
 
 .save-block-open {
-  margin: 1rem auto !important;
+  margin: 3rem auto 0 auto !important;
+}
+
+.save-block-open p {
+  color: white;
 }
 
 .save-block input {
   background: none;
   border: none;
   border-bottom: 1px solid gray;
-  padding: 1rem 1rem 0 0;
-  display: block;
-  text-transform: uppercase;
-  margin: 3rem auto 0;
-  font-size: 1rem;
-  outline: none;
   color: white;
+  display: block;
+  font-size: 1rem;
+  margin: 1rem auto 0;
+  padding: 1rem 1rem 0 0;
+  outline: none;
+  text-transform: uppercase;
+}
+
+.save-block button {
+  border-radius: 5px;
+  border: 1px solid gray;
+  background-color: gray;
+  color: white;
+  display: block;
+  margin: .5rem auto 0;
+  outline: none;
+  padding: .5rem 1rem;
+  transition: .3s;
+}
+
+.save-block button:disabled {
+  background-color: transparent;
+  border: 1px solid transparent;
+  ;
+  color: darkgray;
+  cursor: default;
+}
+
+.save-block button:hover {
+  color: darkgray;
+  border: 1px solid white;
+  cursor: pointer;
+  filter: brightness(150%);
 }
 
 /* ! info-button ! */
 
 .ℹ️ {
-  width: 1.5rem;
-  transition: .4s;
+  bottom: 1rem;
   position: fixed;
   right: 1rem;
-  bottom: 1rem;
+  transition: .4s;
+  width: 1.5rem;
 }
 
 .ℹ️:hover {
-  filter: brightness(180%);
   cursor: pointer;
-  z-index: 500;
+  filter: brightness(180%);
 }
 
 /* ! info-overlay ! */
 
 .info-overlay {
+  color: lightgray;
   box-sizing: border-box;
   left: 0;
-  top: 0;
-  color: lightgray;
-  transition: .4s;
   opacity: 0;
+  top: 0;
+  transition: .4s;
 }
 
 .info-overlay-shown {
@@ -347,21 +382,21 @@ header {
 }
 
 .v {
+  left: .5rem;
   position: fixed;
   top: 3rem;
-  left: .5rem;
 }
 
 .s {
+  right: .5rem;
   position: fixed;
   top: 3rem;
-  right: .5rem;
 }
 
 .c {
+  margin-top: 13rem;
   text-align: center;
 }
-
 
 .proj-palette-circles {
   display: flex;
@@ -369,18 +404,16 @@ header {
 }
 
 .proj-cir {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background-color: red;
   border: 1px solid transparent;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
 }
 
 .proj-cir:hover {
   cursor: pointer;
   border: 1px solid white;
 }
-
 
 /* !animations */
 

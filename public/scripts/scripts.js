@@ -12,6 +12,7 @@ const saveProjectInput = document.querySelector('.save-project-input');
 const saveProjectButton = document.querySelector('.submit-project-button');
 const projectBox = document.querySelector('.saved-projects')
 const currentProjectTitle = document.querySelector('.current-project')
+const savePaletteInput = document.querySelector('.save-color-palette-input')
 
 magicButton.addEventListener('click', displayColors);
 colorBlock.addEventListener('click', lockColor);
@@ -22,6 +23,8 @@ menuButton.addEventListener('click', openProjectMenu);
 infoButton.addEventListener('click', showInfoMenu);
 saveColorsButton.addEventListener('click', savePalette)
 projectBox.addEventListener('click', projectBoxHandler)
+savePaletteInput.addEventListener('keydown', enablePaletteSave)
+saveProjectInput.addEventListener('keydown', enableProjectSave)
 
 getProjects();
 
@@ -37,16 +40,27 @@ function saveProject(ev) {
   let projectName = saveProjectInput.value;
   postProjects(projectName);
   document.querySelector('.save-project-input').value = ('')
+  openSaveMenu();
 }
 
 function addColorsToPCircles() {
   let array = [];
+}
 
+function enablePaletteSave() {
+  if (document.querySelector('.save-color-palette-input').value === "") {
+    document.querySelector('.save-color-palette-btn').toggleAttribute('disabled');
+  }
+}
+
+function enableProjectSave() {
+  if (document.querySelector('.save-project-input').value === '') {
+    document.querySelector('.submit-project-button').toggleAttribute('disabled')
+  }
 }
 
 function savePalette(ev) {
   ev.preventDefault();
-  document.querySelector()
   let paletteName = paletteInput.value;
   let savedPalette = {
     name: paletteName,
@@ -134,17 +148,17 @@ function getProjects() {
     })
 }
 
-// function getPalettes() {
-//   fetch('/api/v1/:prokect_id/palettes')
-//     .then(function (response) {
-//       return response.json()
-//     })
-//     .then(function (data) {
-//       data.forEach(palette => {
+function getPalettes() {
+  fetch('/api/v1/:prokect_id/palettes')
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (data) {
+      data.forEach(palette => {
 
-//       });
-//     })
-// }
+      });
+    })
+}
 
 function postProjects(name) {
   fetch("/api/v1/projects", {
