@@ -18,7 +18,7 @@ magicButton.addEventListener('click', displayColors);
 colorBlock.addEventListener('click', lockColor);
 saveProjectButton.addEventListener('click', saveProject)
 shuffle.addEventListener("click", genColors);
-showSaveBtn.addEventListener('click', openSaveMenu);
+showSaveBtn.addEventListener('click', toggleSaveMenu);
 menuButton.addEventListener('click', openProjectMenu);
 infoButton.addEventListener('click', showInfoMenu);
 saveColorsButton.addEventListener('click', savePalette)
@@ -40,7 +40,16 @@ function saveProject(ev) {
   let projectName = saveProjectInput.value;
   postProjects(projectName);
   document.querySelector('.save-project-input').value = ('')
-  openSaveMenu();
+  document.querySelector('.save-color-palette-input').value = ('');
+  toggleSaveMenu();
+  showSaveNotif()
+}
+
+function showSaveNotif() {
+  document.querySelector('.saved-notification').classList.toggle('display')
+  setTimeout(function () {
+    document.querySelector('.saved-notification').classList.toggle('display')
+  }, 3000);
 }
 
 function addColorsToPCircles() {
@@ -80,7 +89,7 @@ function openProjectMenu() {
   projectMenu.classList.toggle('p-m-active')
 }
 
-function openSaveMenu() {
+function toggleSaveMenu() {
   let saveBlock = document.querySelector('.save-block');
   showSaveBtn.classList.toggle('d-m-btn-active')
   saveBlock.classList.toggle('save-block-open')
