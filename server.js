@@ -59,26 +59,35 @@ app.listen(app.get("port"), () => {
 });
 
 app.get('/api/v1/projects/:project_id/palettes', (request, response) => {
+  // get request to specified endpoint
   database('palettes').select()
+    // select palettes from the database table
     .then((palettes) => {
       response.status(200).json(palettes)
+      // respond with the returned palettes if successful
     })
     .catch((error) => {
       response.status(500).json({
         error
+        // respond with an error if something went wrong
       })
     })
 })
 
 app.post("/api/v1/:project_id/palettes", (request, response) => {
+  // post request to this specific endpoint
   const palette = request.body;
+  // assign the variable palette to the requests body
   if (!palette.name) {
+    // if the palette doesn't have a name
     return response
       .status(422)
       .send({
         error: `Pls name this juicy palette 🍉`
+        // respond with an error saying that something was wrong and you need to give it a name
       })
   }
+  // if successful, do nothing, because this code was never written.
 });
 
 // making an endpoint that accepts delete requests
@@ -89,12 +98,15 @@ app.delete("/api/v1/project/:project_id/palettes/:palette_id", (request, respons
     // filter through those palettes by the id
     .where("id", palette)
     .del()
+    // delete the row from the table
     .then(() => {
       response.status(202).json(palette);
+      // say that it was okay and was deleted properly
     })
     .catch((error) => {
       response.status(500).json({
         error
+        // you somehow messed up deleting and the server is now broken
       })
     })
 })
