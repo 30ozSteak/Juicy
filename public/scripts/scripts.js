@@ -133,17 +133,17 @@ function getProjects() {
     })
 }
 
-// function getPalettes() {
-//   fetch('/api/v1/:prokect_id/palettes')
-//     .then(function (response) {
-//       return response.json()
-//     })
-//     .then(function (data) {
-//       data.forEach(palette => {
+function getPalettes() {
+  fetch('/api/v1/:prokect_id/palettes')
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (data) {
+      data.forEach(palette => {
 
-//       });
-//     })
-// }
+      });
+    })
+}
 
 function postProjects(name) {
   fetch("/api/v1/projects", {
