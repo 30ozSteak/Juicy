@@ -12,6 +12,7 @@ const saveProjectInput = document.querySelector('.save-project-input');
 const saveProjectButton = document.querySelector('.submit-project-button');
 const projectBox = document.querySelector('.saved-projects')
 const currentProjectTitle = document.querySelector('.current-project')
+const savePaletteInput = document.querySelector('.save-color-palette-input')
 
 magicButton.addEventListener('click', displayColors);
 colorBlock.addEventListener('click', lockColor);
@@ -24,6 +25,7 @@ saveColorsButton.addEventListener('click', savePalette)
 projectBox.addEventListener('click', projectBoxHandler)
 
 getProjects();
+enablePaletteSave();
 
 function projectBoxHandler(ev) {
   if (ev.target.classList.contains('project-label')) {
@@ -42,6 +44,12 @@ function saveProject(ev) {
 function addColorsToPCircles() {
   let array = [];
 
+}
+
+function enablePaletteSave() {
+  if (savePaletteInput.length > 0) {
+    document.querySelector('save-color-palette-btn').removeAttribute("disabled");
+  }
 }
 
 function savePalette(ev) {
