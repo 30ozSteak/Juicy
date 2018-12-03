@@ -84,7 +84,6 @@ header {
 /* ! Project Menu ! */
 
 .project-menu {
-  /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.548); */
   height: 40rem;
   min-width: 20rem;
   left: -100%;
@@ -95,6 +94,7 @@ header {
   position: absolute;
   background: radial-gradient(#414345f1, #2e3031f5);
   z-index: 10;
+  overflow: scroll;
 }
 
 .project-menu h1 {
@@ -113,6 +113,13 @@ header {
 
 .p-m-active {
   left: 9.5% !important;
+}
+
+.project-label {
+  color: white;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-decoration: underline;
 }
 
 /* ! Project Header ! */
@@ -352,23 +359,28 @@ header {
 }
 
 .c {
-  width: 7rem;
-  position: fixed;
-  left: 38%;
-  bottom: 13rem;
+  text-align: center;
 }
 
-@media only screen and (min-width: 1000px) {
-  .c {
-    left: 46.3%
-  }
+
+.proj-palette-circles {
+  display: flex;
+  justify-content: space-around;
 }
 
-@media only screen and (min-width: 600px) and (max-width: 900px) {
-  .c {
-    left: 44.5%
-  }
+.proj-cir {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: red;
+  border: 1px solid transparent;
 }
+
+.proj-cir:hover {
+  cursor: pointer;
+  border: 1px solid white;
+}
+
 
 /* !animations */
 

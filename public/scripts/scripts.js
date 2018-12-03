@@ -39,6 +39,11 @@ function saveProject(ev) {
   document.querySelector('.save-project-input').value = ('')
 }
 
+function addColorsToPCircles() {
+  let array = [];
+
+}
+
 function savePalette(ev) {
   ev.preventDefault();
   document.querySelector()
@@ -104,7 +109,16 @@ class ColoredBox {
 
 function addProjectHTML(name, id) {
   console.log(name, id);
-  let projectHtml = `<div class='project-literal' id=${id}><h3 class="project-label">${name}</h3></div>`;
+  let projectHtml = `<div class='project-literal' id=${id}>
+  <h3 class="project-label">${name}</h3>
+    <div class="proj-palette-circles">
+      <div class="proj-cir cir1"></div>
+      <div class="proj-cir cir2"></div>
+      <div class="proj-cir cir3"></div>
+      <div class="proj-cir cir4"></div>
+      <div class="proj-cir cir5"></div>
+    </div>
+  </div>`;
   projectBox.innerHTML += projectHtml
 }
 
@@ -119,6 +133,18 @@ function getProjects() {
       })
     })
 }
+
+// function getPalettes() {
+//   fetch('/api/v1/:prokect_id/palettes')
+//     .then(function (response) {
+//       return response.json()
+//     })
+//     .then(function (data) {
+//       data.forEach(palette => {
+
+//       });
+//     })
+// }
 
 function postProjects(name) {
   fetch("/api/v1/projects", {

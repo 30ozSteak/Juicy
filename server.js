@@ -77,4 +77,23 @@ app.post("/api/v1/:project_id/palettes", (request, response) => {
   }
 });
 
-// delete("/api/v1/project/:project_id/palettes/:palette_id", );
+// making an endpoint that accepts delete requests
+app.delete("/api/v1/project/:project_id/palettes/:palette_id", (request, response) => {
+  const palette = request.params.palette_id;
+  // look @ the table for palettes
+  database('palettes')
+    // filter through those palettes by the id
+    .where("id", palette)
+    .del()
+    .then(() => {
+      response.status(202).json(palette);
+    })
+    .catch((error) => {
+      response.status(500).json({
+        error
+      })
+    })
+})
+// creating the endpoint for delete and it takes two params, one is the project id and the other is the palette iddoing a forEach of the palette table and comparing the id to the palette id
+
+// del() is asynchronous if its successful delete that
