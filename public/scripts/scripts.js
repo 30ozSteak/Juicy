@@ -40,6 +40,7 @@ function saveProject(ev) {
   let projectName = saveProjectInput.value;
   postProjects(projectName);
   document.querySelector('.save-project-input').value = ('')
+  document.querySelector('.save-color-palette-input').value = ('');
   toggleSaveMenu();
   showSaveNotif()
 }
