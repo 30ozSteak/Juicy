@@ -46,7 +46,6 @@ function addColorsToPCircles() {
 
 function savePalette(ev) {
   ev.preventDefault();
-  document.querySelector()
   let paletteName = paletteInput.value;
   let savedPalette = {
     name: paletteName,
