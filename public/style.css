@@ -344,6 +344,26 @@ header {
   cursor: default;
 }
 
+.saved {
+  filter: brightness(150%);
+  border: 1px solid transparent;
+}
+
+.saved-notification {
+  position: fixed;
+  color: white;
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 3rem;
+  transition: .5s;
+  opacity: 0;
+}
+
+.display {
+  opacity: 1;
+}
+
 .save-block button:hover {
   color: darkgray;
   border: 1px solid white;
