@@ -53,7 +53,7 @@ function showSaveNotif() {
 }
 
 function addColorsToPCircles() {
-  let array = [];
+  let array = []; //this isn't done
 }
 
 function enablePaletteSave() {
